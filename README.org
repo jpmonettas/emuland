@@ -1,0 +1,8 @@
+* Emuland
+
+** For devs
+
+***  Css generation
+#+BEGIN_SRC sh
+lein garden auto
+#+END_SRC
