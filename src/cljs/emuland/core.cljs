@@ -4,8 +4,7 @@
    [re-frame.core :as re-frame]
    [emuland.events :as events]
    [emuland.views :as views]
-   [emuland.config :as config]
-   ))
+   [emuland.config :as config]))
 
 
 (defn dev-setup []

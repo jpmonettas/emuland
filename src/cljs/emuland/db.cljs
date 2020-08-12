@@ -1,4 +1,4 @@
 (ns emuland.db)
 
 (def default-db
-  {:name "re-frame"})
+  {:emulator-hist nil})

@@ -1,3 +1,69 @@
-body {
-  color: red;
+html {
+  height: 100%;
+}
+
+html body {
+  font-size: 10px;
+  font-family: Lucida Console, Monaco, monospace;
+  height: 100%;
+}
+
+html body div#app {
+  height: 100%;
+}
+
+html body div#app .main {
+  height: 98%;
+  display: grid;
+  grid-column: 5;
+  grid-row: 6;
+  grid-gap: 4px;
+}
+
+html body div#app .main .control-panel {
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
+}
+
+html body div#app .main .regs-panel {
+  grid-row: 1 / 2;
+  grid-column: 2 / 5;
+  border: 1px solid #333;
+}
+
+html body div#app .main .regs-panel .reg {
+  display: inline-block;
+  padding: 5px;
+}
+
+html body div#app .main .memory-panel {
+  grid-row: 2 / 7;
+  grid-column: 1 / 4;
+  border: 1px solid #333;
+  overflow-y: scroll;
+}
+
+html body div#app .main .memory-panel .addr-line .address {
+  display: inline-block;
+  margin-right: 5px;
+  margin-left: 5px;
+  color: #999;
+}
+
+html body div#app .main .memory-panel .addr-line .byte {
+  display: inline-block;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+html body div#app .main .disassembler-panel {
+  grid-row: 2 / 7;
+  grid-column: 4 / 5;
+  border: 1px solid #333;
+  padding: 5px;
+  overflow-y: scroll;
+}
+
+html body div#app .main .disassembler-panel .instruction.active {
+  background-color: pink;
 }
