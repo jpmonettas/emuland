@@ -42,12 +42,11 @@
  :prog/used-registers
  :<- [:prog/disassemble]
  (fn [prog-instructions [_]]
-   (let [named-regs-set (into #{:pc} (keys emu/reg->addr))]
-    (->> prog-instructions
-         (mapcat (fn [{:keys [src-reg dst-reg reg]}]
-                   [src-reg dst-reg reg]))
-         (remove nil?)
-         (into named-regs-set)))))
+   (->> prog-instructions
+        (mapcat (fn [{:keys [src-reg dst-reg reg]}]
+                  [src-reg dst-reg reg]))
+        (remove nil?)
+        (into #{:pc :spl :sph :sreg}))))
 
 (re-frame/reg-sub
  :cpu/registers
@@ -62,10 +61,12 @@
  (fn [[registers used-registers] [_]]
    (->> used-registers
         (map (fn [r]
-               (let [rn (if (keyword? r)
-                          (name r)
+               (let [rn (if (keyword? (emu/addr->reg r))
+                          (name (emu/addr->reg r))
                           (str "r" r))
-                     rv (get registers r 0)]
+                     rv (if (= :pc r)
+                          (get registers :pc)
+                          (get registers (emu/reg->addr r) 0))]
                  [rn rv])))
         (sort-by first))))
 
