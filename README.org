@@ -1,4 +1,12 @@
-* Emuland
+* Emuland, microcontrollers emulation inside the browser
+
+*WIP, just starting with some basic AVR micro controllers*
+
+Goals:
+- Try to be fully deterministic
+- Can debug forward and backwards in time
+
+[[./screenshot.png]]
 
 ** For devs
 
